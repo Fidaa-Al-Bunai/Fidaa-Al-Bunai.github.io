@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protfolio - Fedaa Albonay</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <script src="https://kit.fontawesome.com/f739107cdf.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="headerA">
+        <div class="container">
+            <nav>
+                <img src="Pictures/logo.png" class="logo">
+                <ul id="sidemenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="portfolio.html">Protfolio</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <i class="fas fa-times" onclick="closemenu()"></i>
+                </ul>
+                <i class="fas fa-bars" onclick="openmenu()"></i>
+            </nav>
+        </div>
+        <div id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="about-col-1">
+                        <img src="Pictures/user.png">
+                    </div>
+                    <div class="about-col-2">
+                        <h1 class="sub-title">About Me</h1>
+                        <p>Motivated and adaptable professional with a strong foundation in digital marketing and front-end 
+                            development, seeking to utilize valuable work experience in excavation, automotive maintenance, 
+                            carpentry, and aluminum work. Committed to ongoing self-improvement and enhancing English 
+                            language skills for effective global communication and collaboration.</p>
+                        
+                         <div class="tab-titles">
+                            <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                            <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                            <p class="tab-links" onclick="opentab('education')">Education</p>
+                         </div>
+                         <div class="tab-contents active-tab" id="skills">
+                             <ul>
+                                <li><span>Excavator Operation</span><br>Crawler and wheel excavators</li>
+                                <li><span>Fault Troubleshooting and Maintenance</span><br>Minor fault troubleshooting and maintenance</li>
+                                <li><span>Sewage Pipe Installation</span><br>Installation of sewage pipes</li>
+                                <li><span>Construction Site Coordination</span><br>Coordination and teamwork on construction sites</li>
+                                <li><span>Petrol Car Maintenance</span><br>Maintenance and repair of petrol cars</li>
+                                <li><span>Carpentry Skills</span><br>Proficient in carpentry</li>
+                                <li><span>Aluminum Fabrication</span><br>Fabrication and installation of aluminum structures</li>
+                                <li><span>Quick Learner</span><br>Passionate about acquiring new skills</li>
+                                <li><span>E-Marketing</span><br>Proficient in e-marketing</li>
+                                <li><span>HTML and CSS</span><br>Proficient in HTML and CSS</li>
+                                <li><span>Problem-Solving Abilities</span><br>Strong problem-solving skills</li>
+                            </ul>
+                         </div>
+                         <div class="tab-contents" id="experience">
+                            <ul>
+                               <li><span>2017 - 2019</span><br>Atmat General Contracting Company, As-Suwayda, Syria  Excavator Operator</li>
+                               <li><span>2016 - 2016</span><br>Al-Bunni Auto Maintenance Company, As-Suwayda, Syria  Assistant Car Mechanic</li>
+                               <li><span>2016 - 2016</span><br>Lamasat Company for Aluminum and Kitchen, As-Suwayda, Syria  Furniture Carpenter and Aluminum Worker</li>
+                            </ul>
+                        </div>
+                        <div class="tab-contents" id="education">
+                            <ul>
+                               <li><span>2022 - Current</span><br>Meta Front-End Developer</li>
+                               <li><span>2022 - 2022</span><br>Harvard University CS50’s Introduction to Programming with Python
+                                <a href="Certificates/CS50P[352].pdf" download class="certificate" title="Download The Certificate"><i class="fa-solid fa-file-arrow-down"></i></a></li>
+                               <li><span>2022 - 2022</span><br>Google Digital Garage The Fundamentals of Digital Marketing
+                                <a href="Certificates/DOC-20221124-WA0000.[355].pdf" download class="certificate" title="Download The Certificate"><i class="fa-solid fa-file-arrow-down"></i></a></li>
+                               <li><span>2012 - 2015</span><br>Martyr Amjad Nazih Abu Latif School Middle School Syria. </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+    <script>
+
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+    
+        function opentab(tabname){
+            for(tablink of tablinks){
+                tablink.classList.remove("active-link");
+            }
+            for(tabcontent of tabcontents){
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab")
+        }
+    
+    </script>
+    
+    <script>
+    
+        var sidemenu = document.getElementById("sidemenu");
+    
+        function openmenu(){
+            sidemenu.style.right = "0";
+        }
+        
+        function closemenu(){
+            sidemenu.style.right = "-200px";
+        }
+    
+    
+    </script>
+    
+    <script>
+    
+    
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyBK3jw73R6mmmiFnas1acHmXq8jm8MUbPf6edVp8Orrp3jLWTybOLGngFoNwqhFB4m/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msg = document.getElementById('msg')
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                msg.innerHTML = "Message sent successfully"
+                setTimeout(function(){
+                    msg.innerHTML = ""
+                }, 5000)
+                form.reset()
+            })
+            .catch(error => console.error('Error!', error.message))
+        })
+    
+    
+    </script>
+</body>
+</html>
